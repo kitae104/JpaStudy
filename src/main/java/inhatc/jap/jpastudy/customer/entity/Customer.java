@@ -11,10 +11,10 @@ import lombok.*;
 @Entity
 @ToString
 @Builder
-public class Customer extends BaseEntity {
+public class Customer {
 
     @Id
-    @Column(name = "customer_code", length = 7)
+    @Column(length = 7)
     private String customerCode;    // 고객코드
 
     @Column(nullable = false, length = 10)
@@ -32,8 +32,7 @@ public class Customer extends BaseEntity {
     @Column(nullable = true, length = 30)
     private String email;           // 이메일
 
-    @Column(name = "max", precision = 10, scale = 0, columnDefinition = "NUMBER (10)")
-    private double totalPoint;         // 누적포인트
+    private int totalPoint;         // 누적포인트
 
     @Column(length=14)
     private String regDate;
