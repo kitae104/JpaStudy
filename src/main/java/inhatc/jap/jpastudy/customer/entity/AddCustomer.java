@@ -11,10 +11,10 @@ import lombok.*;
 @Entity
 @ToString
 @Builder
-public class AddCustomer extends BaseEntity {
+public class AddCustomer {
 
     @Id
-    @Column(name = "customer_code", length = 7)
+    @Column(length = 7)
     private String customerCode;    // 고객코드
 
     @Column(nullable = false, length = 10)
