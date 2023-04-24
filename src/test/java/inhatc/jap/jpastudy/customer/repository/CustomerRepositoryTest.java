@@ -1,5 +1,6 @@
 package inhatc.jap.jpastudy.customer.repository;
 
+import inhatc.jap.jpastudy.customer.entity.AddCustomer;
 import inhatc.jap.jpastudy.customer.entity.Customer;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,9 +16,12 @@ class CustomerRepositoryTest {
     @Autowired
     private CustomerRepository customerRepository;
 
+    @Autowired
+    private AddCustomerRepository addCustomerRepository;
+
     //@Transactional
     @Test
-    @DisplayName("데이터 입력")
+    @DisplayName("Customer 입력")
     public void insertData(){
         BufferedReader br = null;
         String line = null;
@@ -35,6 +39,7 @@ class CustomerRepositoryTest {
                         .phoneNumber(datas[4])
                         .email(datas[5])
                         .totalPoint(Integer.parseInt(datas[6]))
+                        .regDate(datas[7].trim())
                         .build();
                 customerRepository.save(customer);
             }
@@ -45,6 +50,36 @@ class CustomerRepositoryTest {
         }
 
         customerRepository.findAll().forEach(System.out::println);
+
+    }
+
+    @Test
+    @DisplayName("AddCustomer 입력")
+    public void insertAddCustomer(){
+        BufferedReader br = null;
+        String line = null;
+        try {
+            br = new BufferedReader(new FileReader(new File("src/main/resources/data/add_customer.csv")));
+            while((line = br.readLine()) != null){
+                String[] datas = line.split(",");
+                Arrays.stream(datas).forEach(System.out::println);
+
+                AddCustomer customer = AddCustomer.builder()
+                        .customerCode(datas[0])
+                        .customerName(datas[1])
+                        .flag(datas[2])
+                        .birthDay(datas[3])
+                        .phoneNumber(datas[4])
+                        .build();
+                addCustomerRepository.save(customer);
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        addCustomerRepository.findAll().forEach(System.out::println);
 
     }
 }
