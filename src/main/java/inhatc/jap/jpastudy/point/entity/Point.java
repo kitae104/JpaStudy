@@ -12,21 +12,20 @@ import java.math.BigDecimal;
 @Entity
 @ToString
 @Builder
+@IdClass(PointID.class)
 public class Point {
 
     @Id
-    @Column(name = "customer_code", length = 7)
+    @Column(length = 7)
     private String customerCode;    // 고객코드
 
     @Id
-    @Column(precision = 10, scale = 0, columnDefinition = "NUMBER (10)")
-    private double seqNo;
+    private Long seqNo;
 
     @Column(length = 50)
     private String pointMemo;
 
-    @Column(precision = 10, scale = 0, columnDefinition = "NUMBER (10)")
-    private double point;
+    private int point;
 
     @Column(length=14)
     private String regDate;
