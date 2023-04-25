@@ -1,7 +1,5 @@
 package inhatc.jap.jpastudy.sale.repository;
 
-import inhatc.jap.jpastudy.info.entity.ClassInfo;
-import inhatc.jap.jpastudy.info.repository.ClassInfoRepository;
 import inhatc.jap.jpastudy.sale.entity.Sales;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,8 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.*;
 import java.util.Arrays;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class SalesRepositoryTest {
