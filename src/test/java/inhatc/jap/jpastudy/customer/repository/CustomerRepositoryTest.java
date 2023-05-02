@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.*;
 import java.util.Arrays;
+import java.util.List;
 
 @SpringBootTest
 class CustomerRepositoryTest {
@@ -80,6 +81,19 @@ class CustomerRepositoryTest {
         }
 
         addCustomerRepository.findAll().forEach(System.out::println);
+    }
 
+    @Test
+    @DisplayName("where 절 테스트")
+    public void whereTest(){
+        List<Customer> customers = customerRepository.findByCustomerName("나경숙");
+        customers.forEach(System.out::println);
+    }
+
+    @Test
+    @DisplayName("where 절 테스트2")
+    public void whereTest2(){
+        List<Customer> customers = customerRepository.findByFlag("M");
+        customers.forEach(System.out::println);
     }
 }
