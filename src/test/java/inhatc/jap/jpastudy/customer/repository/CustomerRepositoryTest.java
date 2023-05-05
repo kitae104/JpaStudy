@@ -96,4 +96,18 @@ class CustomerRepositoryTest {
         List<Customer> customers = customerRepository.findByFlag("M");
         customers.forEach(System.out::println);
     }
+
+    @Test
+    @DisplayName("AND 테스트")
+    public void andTest(){
+        List<Customer> customers = customerRepository.findByCustomerCodeAfterAndFlag("2019000", "W");
+        customers.forEach(System.out::println);
+    }
+
+    @Test
+    @DisplayName("AND2 테스트")
+    public void andTest2(){
+        List<Customer> customers = customerRepository.findByBirthDayBeforeAndFlag("1990101", "M");
+        customers.forEach(System.out::println);
+    }
 }
