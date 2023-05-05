@@ -9,4 +9,8 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
     List<Customer> findByCustomerName(String customerName);
 
     List<Customer> findByFlag(String flag);
+
+    List<Customer> findByCustomerCodeAfterAndFlag(String customerCode, String flag);
+
+    List<Customer> findByBirthDayBeforeAndFlag(String birthDay, String flag);
 }
