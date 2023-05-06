@@ -124,4 +124,25 @@ class CustomerRepositoryTest {
         List<Customer> customers = customerRepository.findByBirthDayBeforeOrTotalPointGreaterThan("19900101", 20000);
         customers.forEach(System.out::println);
     }
+
+    @Test
+    @DisplayName("BETWEEN AND 테스트")
+    public void betweenTest(){
+        List<Customer> customers = customerRepository.findByFlagAndTotalPointBetween("W", 10000, 20000);
+        customers.forEach(System.out::println);
+    }
+
+    @Test
+    @DisplayName("BETWEEN AND 테스트2")
+    public void betweenTest2(){
+        List<Customer> customers = customerRepository.findByBirthDayBetween("19800101", "19891231");
+        customers.forEach(System.out::println);
+    }
+
+    @Test
+    @DisplayName("BETWEEN AND 테스트3")
+    public void betweenTest3(){
+        List<Customer> customers = customerRepository.findByTotalPointBetween(10000, 30000);
+        customers.forEach(System.out::println);
+    }
 }
