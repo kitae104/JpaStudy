@@ -110,4 +110,18 @@ class CustomerRepositoryTest {
         List<Customer> customers = customerRepository.findByBirthDayBeforeAndFlag("1990101", "M");
         customers.forEach(System.out::println);
     }
+
+    @Test
+    @DisplayName("OR 테스트")
+    public void orTest(){
+        List<Customer> customers = customerRepository.findByBirthDayAfterOrTotalPointGreaterThan("19900101", 20000);
+        customers.forEach(System.out::println);
+    }
+
+    @Test
+    @DisplayName("OR 테스트2")
+    public void orTest2(){
+        List<Customer> customers = customerRepository.findByBirthDayBeforeOrTotalPointGreaterThan("19900101", 20000);
+        customers.forEach(System.out::println);
+    }
 }
