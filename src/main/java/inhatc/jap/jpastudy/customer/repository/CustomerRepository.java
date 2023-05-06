@@ -17,4 +17,10 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
     List<Customer> findByBirthDayAfterOrTotalPointGreaterThan(String birthDay, int totalPoint);
 
     List<Customer> findByBirthDayBeforeOrTotalPointGreaterThan(String birthDay, int totalPoint);
+
+    List<Customer> findByFlagAndTotalPointBetween(String flag, int start, int end);
+
+    List<Customer> findByBirthDayBetween(String start, String end);
+
+    List<Customer> findByTotalPointBetween(int min, int max);
 }
