@@ -13,4 +13,8 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
     List<Customer> findByCustomerCodeAfterAndFlag(String customerCode, String flag);
 
     List<Customer> findByBirthDayBeforeAndFlag(String birthDay, String flag);
+
+    List<Customer> findByBirthDayAfterOrTotalPointGreaterThan(String birthDay, int totalPoint);
+
+    List<Customer> findByBirthDayBeforeOrTotalPointGreaterThan(String birthDay, int totalPoint);
 }
